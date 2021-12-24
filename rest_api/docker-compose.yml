@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  restapi:
+    # tty: true # development only
+    image: rest_api_image_sprc_hw2
+    container_name: rest_api_sprc_hw2
+    networks:
+      - restapi_network_sprc_hw2
+      - mongodb_network_sprc_hw2
+    ports:
+      - 8080:80
+    restart: unless-stopped
+
+networks:
+  restapi_network_sprc_hw2:
+    name: restapi_network_sprc_hw2
+  mongodb_network_sprc_hw2:
+    external: true
+    name: mongodb_network_sprc_hw2
